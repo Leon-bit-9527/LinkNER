@@ -95,15 +95,27 @@ def keep_spanPred_data(dataname,fpath_bio,column_no,delimiter):
 			print('tokens: ', tokens)
 
 		pos = {}
+		ent = {}
 		for chunk in chunks:
+			entity = ""
 			lab, sidx, eidx = chunk
+			entity_length = eidx-sidx
+			for i in range (entity_length):
+				entity = entity + tokens[sidx+i]+ " "
 			key1 = str(sidx) +';'+str(eidx-1)
+			key2 = entity
 			pos[key1] = lab
-
+			ent[key2] = lab
+   
 		one_samp = {
 			"context": context,
-			"span_posLabel": pos
+			"span_posLabel": pos,
+			"Label": ent
 		}
+		# one_samp = {
+		# 	"context": context,
+		# 	"span_posLabel": pos
+		# }
 
 		all_datas.append(one_samp)
 
@@ -156,18 +168,18 @@ def read_data(corpus_type, fn, column_no=-1, delimiter =' '):
 if __name__ == '__main__':
 	dataname = 'wnut'
 
-	suffixs = ['train']
+	suffixs = ['dev']
 	column_no = -1 # tag position
 	delimiter = ' '
 	if dataname =='ontonote5':
 		column_no = 3
 	elif 'wnut' in dataname:
 		column_no =1
-		delimiter = '	'
+		delimiter = ' '
 
 	# convsert conll-2003 to spanner format
-	fpath_bio1 = 'few-nerd'
-	dump_path = "few-nerd/"
+	fpath_bio1 = 'twitter/'
+	dump_path = "twitter/"
 
 	if not os.path.exists(dump_path):
 		os.makedirs(dump_path)
@@ -176,8 +188,8 @@ if __name__ == '__main__':
 		fpath_bio = fpath_bio1 +'/' +suffix+'.txt'
 
 		all_data = keep_spanPred_data(dataname,fpath_bio, column_no,delimiter)
-		dump_file_path = dump_path + 'spanner.' + suffix
+		dump_file_path = dump_path + 'Newspanner.' + suffix
 		with open(dump_file_path, "w") as f:
-			json.dump(all_data, f, sort_keys=True, ensure_ascii=False, indent=2)
+			json.dump(all_data, f, ensure_ascii=False, indent=2)
 
 
