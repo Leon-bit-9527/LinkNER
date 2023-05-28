@@ -171,11 +171,9 @@ if __name__ == '__main__':
 	suffixs = ['dev']
 	column_no = -1 # tag position
 	delimiter = ' '
-	if dataname =='ontonote5':
-		column_no = 3
-	elif 'wnut' in dataname:
-		column_no =1
-		delimiter = ' '
+	# if delimiter != ' ', please revised it!
+	column_no =1
+	delimiter = ' '
 
 	# convsert conll-2003 to spanner format
 	fpath_bio1 = 'twitter/'
