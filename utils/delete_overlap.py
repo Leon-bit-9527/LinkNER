@@ -7,8 +7,6 @@ from tqdm import tqdm
 import numpy as np
 import operator
 
-# openai.api_key = "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"
-
 def check_fun(check_list, pr):
 
     if len(check_list) < 1:
