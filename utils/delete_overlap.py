@@ -98,19 +98,6 @@ def main(file_dir):
             else:
                 stage2_result.append(sentence) 
         link(stage2_result)
-            
-# main('typos8138_result9120.txt')
-# main('oov6719_result9120.txt')
-# main('ood7818_result9120.txt')
-# main('test_result.txt')
+           
 
-# main('ori_results_unc0.8.txt')
-
-main('ori_ink_test/ori_results_unc0.1.txt')
-
-# a=['1','-1','0']
-# a=[1,-1,0]
-
-# b=[1,-1,0]
-# if a==b:
-#     print('yes')
+main('')
