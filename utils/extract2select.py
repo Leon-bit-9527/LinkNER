@@ -6,22 +6,6 @@ import os
 import random
 import argparse
 
-# # conll
-# label_map = {"LOC": "Loction", "ORG": "Organization", "PER": "Person", "MISC": "Miscellaneous"}
-# label_select = "\n Location\n Person\n Organization\n Miscellaneous\n Non-entity"
-# label_list = ['LOC','PER','ORG','MISC','Non']
-
-
-# # Ontonote 5 labels
-# label_map = {"PERSON": "PERSON", "ORG": "ORGANIZATION", "GPE": "GPE", "DATE": "DATE", "NORP": "NORP", "CARDINAL": "CARDINAL", "TIME":"TIME", "LOC": "LOCTION", "FAC":"FACILITY", "PRODUCT":"PRODUCT", "WORK_OF_ART":"WORK_OF_ART", "MONEY":"MONEY", "ORDINAL":"ORDINAL", "QUANTITY":"QUANTITY", "EVENT":"EVENT", "PERCENT":"PERCENT", "LAW":"LAW", "LANGUAGE":"LANGUAGE"}
-# label_select = "\n PERSON\n ORGANIZATION\n GPE\n DATE\n NORP\n CARDINAL\n TIME\n LOCTION\n FACILITY \n PRODUCT\n WORK_OF_ART\n MONEY\n ORDINAL\n QUANTITY\n EVENT\n PERCENT\n LAW\n LANGUAGE\n Non-entity"
-# label_list = ['PERSON', 'ORG', 'GPE', 'DATE', 'NORP', 'CARDINAL', 'TIME', 'LOC', 'FAC', 'PRODUCT', 'WORK_OF_ART', 'MONEY', 'ORDINAL', 'QUANTITY', 'EVENT', 'PERCENT', 'LAW', 'LANGUAGE', 'Non']
-
-# # wnut17 labels
-# label_map = {"person": "Person", "creative_work": "Creative_work", "product": "Product", "location": "Location", "group": "Group", "corporation":"Corporation"}
-# label_select = "\n Location\n Group\n Corporation\n Person\n Creative_work\n Product\n Non-entity"
-# label_list = ['location', 'group','corporation','person','creative_work','product','Non']
-
 # Twitter labels
 label_map = {"LOC": "Loction", "ORG": "Organization", "PER": "Person", "OTHER": "Other"}
 label = "\n Location\n Person\n Organization\n Other\n Non-entity"
@@ -76,7 +60,7 @@ def sample_example(dic, shot):
                 pass
     return("".join(example))
 
-ext2sel("twitter/Spanselect.dev", "twitter/select.dev")
+ext2sel("", "")
 
 file = open("twitter/select.dev", 'r')
 js = file.read()
