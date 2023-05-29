@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 def check_fun(check_list, pr, overlap_word):
 
