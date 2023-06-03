@@ -10,7 +10,6 @@ def span2bio(input_dir, output_dir):
     punctuation = ",.\"!?:'"
     sentence_dic = defaultdict(list)
     f_write=open(output_dir,"w")
-    
     file = open('input_dir', 'r')
     js = file.read()
     dic = json.loads(js)
